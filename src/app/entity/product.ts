@@ -10,10 +10,9 @@ export class Product {
         public description?: string,
         public url?:string) 
     { // url? means its optional
-        // this.id = id;
-        // this.name = name;
-        // this.price = price;
-        // this.description = description;
+        // this.id = 0;
+        // this.name = "abc";
+        // this.price = 1;
+        // this.description = "description";
     }
-
 }
