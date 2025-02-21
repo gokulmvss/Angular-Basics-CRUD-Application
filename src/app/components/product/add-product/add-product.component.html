@@ -1,0 +1,17 @@
+<p>add-product works!</p>
+
+<form>
+    <h1>Add New Product</h1>
+    ID: <br>
+    <input type="number" name="id" [(ngModel)]="newProduct.id"><br>
+    Name: <br>
+    <input type="text" name="name" [(ngModel)]="newProduct.name"><br>
+    Price: <br>
+    <input type="number" name="price" [(ngModel)]="newProduct.price"><br>
+    Description: <br>
+    <input type="text" name="description" [(ngModel)]="newProduct.description"><br>
+    Image URL: <br>
+    <input type="text" name="url" [(ngModel)]="newProduct.url"><br>
+
+    <button type="submit" (click)="addproduct()">Add Product</button>
+</form>
