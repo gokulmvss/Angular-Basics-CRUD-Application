@@ -19,9 +19,8 @@ export class AddProductComponent {
   addStatus:boolean=false;
   addproduct(){
     this.addStatus = this.productservice.addNewProduct(this.newProduct);
-    console.log(this.newProduct,this.addStatus);
+    // console.log(this.newProduct,this.addStatus);
     this.newProduct = new Product(); // Allocate memory for a new product
     this.router.navigate(['/view-product'])
-
   }
 }

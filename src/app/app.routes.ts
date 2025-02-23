@@ -6,10 +6,10 @@ import { UpdateComponentComponent } from './components/product/update-component/
 
 
 export const routes: Routes = [
-    {path:'',redirectTo:'product/view-products',pathMatch:'full'},
+    {path:'',redirectTo:'product/view-product',pathMatch:'full'},
     {path:'product/add-product',component:AddProductComponent},
-    {path:'product//view-product',component:ReadComponentComponent},
-    {path:'product/update-product',component:UpdateComponentComponent},
+    {path:'product/view-product',component:ReadComponentComponent},
+    {path:'product/update-product/:id',component:UpdateComponentComponent},
     {path:'product/delete-product',component:DeleteComponentComponent},
     {path:'**',component:ReadComponentComponent}, // routes all the unknown routes to this component
 ];

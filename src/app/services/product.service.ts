@@ -26,4 +26,17 @@ export class ProductService {
     this.products=this.products.filter(p=>p.id != productid);
     return this.products;
   }
+
+  updateProduct(updatedProduct: Product): boolean {
+    const index = this.products.findIndex(p => p.id === updatedProduct.id);
+    if (index !== -1) {
+      this.products[index] = updatedProduct;
+      return true;
+    }
+    return false;
+  }
+
+  getProductById(productId: number): Product | undefined {
+    return this.products.find(p => p.id === productId);
+  }
 }
