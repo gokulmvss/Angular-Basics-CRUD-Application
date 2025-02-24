@@ -3,6 +3,7 @@ import { AddProductComponent } from './components/product/add-product/add-produc
 import { ReadComponentComponent } from './components/product/read-component/read-component.component';
 import { DeleteComponentComponent } from './components/product/delete-component/delete-component.component';
 import { UpdateComponentComponent } from './components/product/update-component/update-component.component';
+import { ProductSearchImplementationComponent } from './components/product-search-implementation/product-search-implementation.component';
 
 
 export const routes: Routes = [
@@ -11,5 +12,6 @@ export const routes: Routes = [
     {path:'product/view-product',component:ReadComponentComponent},
     {path:'product/update-product/:id',component:UpdateComponentComponent},
     {path:'product/delete-product',component:DeleteComponentComponent},
+    {path:'product/search-product',component:ProductSearchImplementationComponent},
     {path:'**',component:ReadComponentComponent}, // routes all the unknown routes to this component
 ];

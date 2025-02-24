@@ -28,7 +28,7 @@ export class ReadComponentComponent implements OnInit { // on init runs when a n
   }
 
   updateProductbyid(productid?:number){
-    if(confirm("Confirm the Updation of product ``(productid)``")){
+    if(confirm("Confirm the Updation of product `${productid}`")){
       // console.log("Do you want to delete Product Id:",productid);
       this.router.navigate(['/product/update-product', productid]);
     } 
