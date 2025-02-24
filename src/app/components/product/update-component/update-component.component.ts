@@ -6,10 +6,10 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-update-product',
-  standalone: true,
+  // standalone: true,
   imports: [FormsModule],
-  templateUrl: './update-product.component.html',
-  styleUrl: './update-product.component.css',
+  templateUrl: './update-component.component.html',
+  styleUrl: './update-component.component.css',
 })
 export class UpdateComponentComponent implements OnInit {
   product: Product = new Product(); 
@@ -33,6 +33,7 @@ export class UpdateComponentComponent implements OnInit {
   }
 
   loadProduct() {
+    console.log("Loading this product")
     const foundProduct = this.productService.getProductById(this.productId);
     if (foundProduct) {
       console.log(foundProduct);
