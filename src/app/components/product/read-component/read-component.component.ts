@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../entity/product';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { ChildComponent } from '../child/child.component';
 
 @Component({
   selector: 'app-read-component',
-  imports: [CommonModule],
+  imports: [CommonModule,ChildComponent],
   templateUrl: './read-component.component.html',
   styleUrl: './read-component.component.css',
   standalone:true
 })
 export class ReadComponentComponent implements OnInit { // on init runs when a new object is initialized
   products:Product[] = [];
+  selectedProduct?:Product;
   
   constructor(private productservice:ProductService,private router: Router){ }
   ngOnInit(): void {
@@ -33,5 +35,20 @@ export class ReadComponentComponent implements OnInit { // on init runs when a n
       this.router.navigate(['/product/update-product', productid]);
     } 
   }
+
+  selectProduct(productselect:Product):void{
+    this.selectedProduct = productselect;
+    console.log(this.selectedProduct);
+  }
+
+  // Method to handle the updated product
+  handleProductUpdate(updatedProduct: Product): void {
+    const index = this.products.findIndex(p => p.id === updatedProduct.id);
+    if (index !== -1) {
+      this.products[index] = updatedProduct;
+      console.log('Product updated:', updatedProduct);
+    }
+  }
+
 
 }

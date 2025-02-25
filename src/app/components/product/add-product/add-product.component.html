@@ -1,21 +1,42 @@
 <p>add-product works!</p>
 
-<form class="container mx-auto">
-    <h1>Add New Product</h1>
-    ID: <br>
-    <input type="number" name="id" [(ngModel)]="newProduct.id"><br>
-    Name: <br>
-    <input type="text" name="name" [(ngModel)]="newProduct.name"><br>
-    Price: <br>
-    <input type="number" name="price" [(ngModel)]="newProduct.price"><br>
-    Description: <br>
-    <input type="text" name="description" [(ngModel)]="newProduct.description"><br>
-    Image URL: <br>
-    <input type="text" name="url" [(ngModel)]="newProduct.url"><br>
+<!-- Form container with Template-Driven Form Validation -->
+<form class="container mx-auto" #productForm="ngForm" (ngSubmit)="addproduct(productForm)">
+    <h1>Add New Product and Form Validation using Template Driven Form Validation</h1>
 
-    <button type="submit" class="btn btn-primary" (click)="addproduct()">Add Product</button>
+    <!-- ID field with ngModel binding and validation -->
+    ID: <br>
+    <input type="number" name="id" [(ngModel)]="newProduct.id" #id="ngModel" required><br>
+    <div *ngIf="id.invalid && id.touched" class="text-danger">ID is required.</div>
+
+    <!-- Name field with ngModel binding and validation -->
+    Name: <br>
+    <input type="text" name="name" [(ngModel)]="newProduct.name" #name="ngModel" required><br>
+    <div *ngIf="name.invalid && name.touched" class="text-danger">Name is required.</div>
+
+    <!-- Price field with ngModel binding and validation -->
+    Price: <br>
+    <input type="number" name="price" [(ngModel)]="newProduct.price" #price="ngModel" required pattern="^\d{1,10}$"><br>
+    <div *ngIf="price.invalid && price.touched" class="text-danger">
+        <div *ngIf="price.errors?.['required']">Price is required.</div>
+        <div *ngIf="price.errors?.['pattern']">Price must be up to 10 digits.</div>
+    </div>
+
+    <!-- Description field with ngModel binding and validation -->
+    Description: <br>
+    <input type="text" name="description" [(ngModel)]="newProduct.description" #description="ngModel"><br>
+    <div *ngIf="description.invalid && description.touched" class="text-danger">Description is required.</div>
+
+    <!-- Image URL field with ngModel binding and validation -->
+    Image URL: <br>
+    <input type="text" name="url" [(ngModel)]="newProduct.url" #url="ngModel" required><br>
+    <div *ngIf="url.invalid && url.touched" class="text-danger">Image URL is required.</div>
+
+    <!-- Submit button disabled if form is invalid -->
+    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Add Product</button>
 </form>
 
+<!-- Display the add status -->
 <div>
-    <span>Add Status:{{addStatus}}</span>
+    <span>Add Status: {{ addStatus }}</span>
 </div>
