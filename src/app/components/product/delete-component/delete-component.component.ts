@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../entity/product';
 import { ProductService } from '../../../services/product.service';
 import { OpenapiService } from '../../../services/openapi.service';
-import { error } from 'console';
 
 @Component({
   selector: 'app-delete-component',
