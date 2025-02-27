@@ -11,7 +11,7 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
-      require('karma-firefox-launcher')
+      // require('karma-firefox-launcher')
     ],
     client: {
       jasmine: {
@@ -33,7 +33,7 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
-    browsers: ['Firefox'],
+    browsers: ['Chrome','Firefox'],
     restartOnFileChange: true
   });
 };
